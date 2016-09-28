@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D1C926D1D9C4DF400C9B460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C926C1D9C4DF400C9B460 /* AppDelegate.m */; };
+		2D1C92701D9C4DF400C9B460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C926F1D9C4DF400C9B460 /* main.m */; };
+		2D1C92731D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C92711D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodeld */; };
+		2D1C92751D9C4DF400C9B460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D1C92741D9C4DF400C9B460 /* Assets.xcassets */; };
+		2D1C92781D9C4DF400C9B460 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D1C92761D9C4DF400C9B460 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2D1C92681D9C4DF400C9B460 /* Hachidori Toshoukan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hachidori Toshoukan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1C926B1D9C4DF400C9B460 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2D1C926C1D9C4DF400C9B460 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2D1C926F1D9C4DF400C9B460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2D1C92721D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hachidori_Toshoukan.xcdatamodel; sourceTree = "<group>"; };
+		2D1C92741D9C4DF400C9B460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D1C92771D9C4DF400C9B460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2D1C92791D9C4DF400C9B460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D1C92651D9C4DF400C9B460 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D1C925F1D9C4DF400C9B460 = {
+			isa = PBXGroup;
+			children = (
+				2D1C926A1D9C4DF400C9B460 /* Hachidori Toshoukan */,
+				2D1C92691D9C4DF400C9B460 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D1C92691D9C4DF400C9B460 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D1C92681D9C4DF400C9B460 /* Hachidori Toshoukan.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D1C926A1D9C4DF400C9B460 /* Hachidori Toshoukan */ = {
+			isa = PBXGroup;
+			children = (
+				2D1C926B1D9C4DF400C9B460 /* AppDelegate.h */,
+				2D1C926C1D9C4DF400C9B460 /* AppDelegate.m */,
+				2D1C92741D9C4DF400C9B460 /* Assets.xcassets */,
+				2D1C92761D9C4DF400C9B460 /* MainMenu.xib */,
+				2D1C92791D9C4DF400C9B460 /* Info.plist */,
+				2D1C92711D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodeld */,
+				2D1C926E1D9C4DF400C9B460 /* Supporting Files */,
+			);
+			path = "Hachidori Toshoukan";
+			sourceTree = "<group>";
+		};
+		2D1C926E1D9C4DF400C9B460 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D1C926F1D9C4DF400C9B460 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D1C92671D9C4DF400C9B460 /* Hachidori Toshoukan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D1C927C1D9C4DF400C9B460 /* Build configuration list for PBXNativeTarget "Hachidori Toshoukan" */;
+			buildPhases = (
+				2D1C92641D9C4DF400C9B460 /* Sources */,
+				2D1C92651D9C4DF400C9B460 /* Frameworks */,
+				2D1C92661D9C4DF400C9B460 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hachidori Toshoukan";
+			productName = "Hachidori Toshoukan";
+			productReference = 2D1C92681D9C4DF400C9B460 /* Hachidori Toshoukan.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D1C92601D9C4DF400C9B460 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Atelier Shiori";
+				TargetAttributes = {
+					2D1C92671D9C4DF400C9B460 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 2D1C92631D9C4DF400C9B460 /* Build configuration list for PBXProject "Hachidori Toshoukan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D1C925F1D9C4DF400C9B460;
+			productRefGroup = 2D1C92691D9C4DF400C9B460 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D1C92671D9C4DF400C9B460 /* Hachidori Toshoukan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D1C92661D9C4DF400C9B460 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1C92751D9C4DF400C9B460 /* Assets.xcassets in Resources */,
+				2D1C92781D9C4DF400C9B460 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D1C92641D9C4DF400C9B460 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1C92731D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodeld in Sources */,
+				2D1C92701D9C4DF400C9B460 /* main.m in Sources */,
+				2D1C926D1D9C4DF400C9B460 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2D1C92761D9C4DF400C9B460 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D1C92771D9C4DF400C9B460 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D1C927A1D9C4DF400C9B460 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2D1C927B1D9C4DF400C9B460 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2D1C927D1D9C4DF400C9B460 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Hachidori Toshoukan/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "moe.ateliershiori.Hachidori-Toshoukan";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2D1C927E1D9C4DF400C9B460 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Hachidori Toshoukan/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "moe.ateliershiori.Hachidori-Toshoukan";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D1C92631D9C4DF400C9B460 /* Build configuration list for PBXProject "Hachidori Toshoukan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D1C927A1D9C4DF400C9B460 /* Debug */,
+				2D1C927B1D9C4DF400C9B460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D1C927C1D9C4DF400C9B460 /* Build configuration list for PBXNativeTarget "Hachidori Toshoukan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D1C927D1D9C4DF400C9B460 /* Debug */,
+				2D1C927E1D9C4DF400C9B460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2D1C92711D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2D1C92721D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodel */,
+			);
+			currentVersion = 2D1C92721D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodel */;
+			path = Hachidori_Toshoukan.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2D1C92601D9C4DF400C9B460 /* Project object */;
+}
