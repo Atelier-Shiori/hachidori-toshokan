@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
@@ -15,6 +14,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="list" destination="3fk-GZ-rwK" id="etU-74-Cnk"/>
+                <outlet property="tb" destination="N5c-r7-0G1" id="Cj7-Rf-9dB"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -365,14 +365,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="100" horizontalPageScroll="10" verticalLineScroll="100" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Vro-rb-pXM">
-                        <rect key="frame" x="0.0" y="-1" width="717" height="523"/>
+                        <rect key="frame" x="0.0" y="31" width="717" height="491"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="HSK-qG-N40">
-                            <rect key="frame" x="1" y="0.0" width="715" height="522"/>
+                            <rect key="frame" x="1" y="0.0" width="715" height="490"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" headerView="Lfe-5C-vZ4" id="N5c-r7-0G1">
-                                    <rect key="frame" x="0.0" y="0.0" width="715" height="499"/>
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" headerView="Lfe-5C-vZ4" id="N5c-r7-0G1">
+                                    <rect key="frame" x="0.0" y="0.0" width="713" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="50"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -387,7 +387,7 @@
                                             <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="fYt-KH-GhM"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="3fk-GZ-rwK" name="data" keyPath="arrangedObjects.image" id="efD-6Z-wUu"/>
+                                                <binding destination="3fk-GZ-rwK" name="valueURL" keyPath="arrangedObjects.image" id="mcO-kh-C70"/>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn width="224" minWidth="40" maxWidth="1000" id="MMG-bY-0Pz">
@@ -454,7 +454,7 @@
                                                 <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.score" id="NPs-Oq-yjm"/>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn identifier="" width="142" minWidth="10" maxWidth="3.4028234663852886e+38" id="vTR-ng-ykI">
+                                        <tableColumn identifier="" width="139.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="vTR-ng-ykI">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Status">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -475,8 +475,8 @@
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="0.16666666666666666" horizontal="YES" id="FYN-Pm-Nm0">
-                            <rect key="frame" x="1" y="507" width="813" height="15"/>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="FYN-Pm-Nm0">
+                            <rect key="frame" x="1" y="475" width="715" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Qzs-v4-M0k">
@@ -484,7 +484,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <tableHeaderView key="headerView" id="Lfe-5C-vZ4">
-                            <rect key="frame" x="0.0" y="0.0" width="715" height="23"/>
+                            <rect key="frame" x="4" y="0.0" width="715" height="23"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
@@ -515,12 +515,12 @@
                         <popUpButton key="view" verticalHuggingPriority="750" id="RyV-pu-EdP">
                             <rect key="frame" x="0.0" y="14" width="100" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <popUpButtonCell key="cell" type="roundTextured" title="dropped" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="rVf-XJ-2po" id="kjC-Nf-uV5">
+                            <popUpButtonCell key="cell" type="roundTextured" title="All" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="uJV-3r-RZa" id="kjC-Nf-uV5">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="menu"/>
                                 <menu key="menu" id="l7C-FX-oFT">
                                     <items>
-                                        <menuItem title="All" id="uJV-3r-RZa"/>
+                                        <menuItem title="All" state="on" id="uJV-3r-RZa"/>
                                         <menuItem isSeparatorItem="YES" id="heL-us-iii"/>
                                         <menuItem title="currently-watching" id="aNI-4C-9t1"/>
                                         <menuItem title="plan-to-watch" id="dcn-Qn-Tkt"/>
@@ -530,7 +530,7 @@
                                         <menuItem title="on-hold" id="PPt-jm-vn9">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="dropped" state="on" id="rVf-XJ-2po">
+                                        <menuItem title="dropped" id="rVf-XJ-2po">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                     </items>
@@ -590,12 +590,13 @@
                     <toolbarItem reference="Ncg-KW-N95"/>
                 </defaultToolbarItems>
             </toolbar>
+            <contentBorderThickness minY="32"/>
             <connections>
                 <outlet property="delegate" destination="Voe-Tx-rLC" id="Wk8-sx-FYV"/>
             </connections>
-            <point key="canvasLocation" x="472" y="229"/>
+            <point key="canvasLocation" x="183" y="319"/>
         </window>
-        <arrayController mode="entity" entityName="AnimeList" automaticallyPreparesContent="YES" id="3fk-GZ-rwK">
+        <arrayController mode="entity" entityName="AnimeList" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="3fk-GZ-rwK">
             <connections>
                 <binding destination="Voe-Tx-rLC" name="managedObjectContext" keyPath="managedObjectContext" id="7fC-kY-XC3"/>
             </connections>

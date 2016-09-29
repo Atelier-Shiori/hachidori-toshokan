@@ -20,6 +20,10 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     self.window.titleVisibility = NSWindowTitleHidden;
+    // Sort data
+    //sort table
+    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    [_tb setSortDescriptors:[NSArray arrayWithObject:sd]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -185,9 +189,13 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:@"https://hummingbird.me/api/v1/users/chikorita157/library" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-       // Clean Core Data
-        [[_list content] removeAllObjects];
+            // Clean Core Data
+            [_list removeObjects:[_list arrangedObjects]];
+            
+            //commit
+            [_managedObjectContext save:nil];
         // populate list
+            
         NSArray * anilist = (NSArray *)responseObject;
         for (NSDictionary * aentry in anilist){
             NSDictionary * ainfo = aentry[@"anime"];
@@ -197,8 +205,7 @@
                                          inManagedObjectContext: _managedObjectContext];
             [newEntry setValue:aentry[@"episodes_watched"] forKey:@"current_episode"];
             [newEntry setValue:aentry[@"id"] forKey:@"id"];
-            NSData * imageData = [[[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",ainfo[@"cover_image"]]]] TIFFRepresentation];
-            [newEntry setValue:imageData forKey:@"image"];
+            [newEntry setValue:[NSString stringWithFormat:@"%@",ainfo[@"cover_image"]] forKey:@"image"];
             [newEntry setValue:aentry[@"last_watched"] forKey:@"last_watched"];
             [newEntry setValue:[NSString stringWithFormat:@"%@",aentry[@"notes"]] forKey:@"notes"];
             [newEntry setValue:aentry[@"private"] forKey:@"private"];
@@ -212,7 +219,12 @@
             [newEntry setValue:aentry[@"updated_at"] forKey:@"updated_at"];
             [_list addObject:newEntry];
         }
+        //commit
         [_managedObjectContext save:nil];
+        //sort table
+        NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+            [_tb setSortDescriptors:[NSArray arrayWithObject:sd]];
+        
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
