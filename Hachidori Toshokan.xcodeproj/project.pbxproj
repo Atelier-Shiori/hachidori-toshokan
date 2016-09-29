@@ -9,20 +9,39 @@
 /* Begin PBXBuildFile section */
 		2D1C926D1D9C4DF400C9B460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C926C1D9C4DF400C9B460 /* AppDelegate.m */; };
 		2D1C92701D9C4DF400C9B460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C926F1D9C4DF400C9B460 /* main.m */; };
-		2D1C92731D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C92711D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodeld */; };
+		2D1C92731D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C92711D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodeld */; };
 		2D1C92751D9C4DF400C9B460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D1C92741D9C4DF400C9B460 /* Assets.xcassets */; };
 		2D1C92781D9C4DF400C9B460 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D1C92761D9C4DF400C9B460 /* MainMenu.xib */; };
+		2D98153D1D9C80BC0012C2A6 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9815311D9C80BC0012C2A6 /* AFHTTPSessionManager.m */; };
+		2D98153E1D9C80BC0012C2A6 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9815341D9C80BC0012C2A6 /* AFNetworkReachabilityManager.m */; };
+		2D98153F1D9C80BC0012C2A6 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9815361D9C80BC0012C2A6 /* AFSecurityPolicy.m */; };
+		2D9815401D9C80BC0012C2A6 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9815381D9C80BC0012C2A6 /* AFURLRequestSerialization.m */; };
+		2D9815411D9C80BC0012C2A6 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D98153A1D9C80BC0012C2A6 /* AFURLResponseSerialization.m */; };
+		2D9815421D9C80BC0012C2A6 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D98153C1D9C80BC0012C2A6 /* AFURLSessionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D1C92681D9C4DF400C9B460 /* Hachidori Toshoukan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hachidori Toshoukan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1C92681D9C4DF400C9B460 /* Hachidori Toshokan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hachidori Toshokan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D1C926B1D9C4DF400C9B460 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D1C926C1D9C4DF400C9B460 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2D1C926F1D9C4DF400C9B460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2D1C92721D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hachidori_Toshoukan.xcdatamodel; sourceTree = "<group>"; };
+		2D1C92721D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hachidori_Toshokan.xcdatamodel; sourceTree = "<group>"; };
 		2D1C92741D9C4DF400C9B460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D1C92771D9C4DF400C9B460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2D1C92791D9C4DF400C9B460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D9815301D9C80BC0012C2A6 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		2D9815311D9C80BC0012C2A6 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		2D9815321D9C80BC0012C2A6 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		2D9815331D9C80BC0012C2A6 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		2D9815341D9C80BC0012C2A6 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		2D9815351D9C80BC0012C2A6 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		2D9815361D9C80BC0012C2A6 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		2D9815371D9C80BC0012C2A6 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		2D9815381D9C80BC0012C2A6 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		2D9815391D9C80BC0012C2A6 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		2D98153A1D9C80BC0012C2A6 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		2D98153B1D9C80BC0012C2A6 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		2D98153C1D9C80BC0012C2A6 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +58,7 @@
 		2D1C925F1D9C4DF400C9B460 = {
 			isa = PBXGroup;
 			children = (
-				2D1C926A1D9C4DF400C9B460 /* Hachidori Toshoukan */,
+				2D1C926A1D9C4DF400C9B460 /* Hachidori Toshokan */,
 				2D1C92691D9C4DF400C9B460 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,23 +66,24 @@
 		2D1C92691D9C4DF400C9B460 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2D1C92681D9C4DF400C9B460 /* Hachidori Toshoukan.app */,
+				2D1C92681D9C4DF400C9B460 /* Hachidori Toshokan.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2D1C926A1D9C4DF400C9B460 /* Hachidori Toshoukan */ = {
+		2D1C926A1D9C4DF400C9B460 /* Hachidori Toshokan */ = {
 			isa = PBXGroup;
 			children = (
+				2D98152F1D9C80B20012C2A6 /* AFNetworking */,
 				2D1C926B1D9C4DF400C9B460 /* AppDelegate.h */,
 				2D1C926C1D9C4DF400C9B460 /* AppDelegate.m */,
 				2D1C92741D9C4DF400C9B460 /* Assets.xcassets */,
 				2D1C92761D9C4DF400C9B460 /* MainMenu.xib */,
 				2D1C92791D9C4DF400C9B460 /* Info.plist */,
-				2D1C92711D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodeld */,
+				2D1C92711D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodeld */,
 				2D1C926E1D9C4DF400C9B460 /* Supporting Files */,
 			);
-			path = "Hachidori Toshoukan";
+			path = "Hachidori Toshokan";
 			sourceTree = "<group>";
 		};
 		2D1C926E1D9C4DF400C9B460 /* Supporting Files */ = {
@@ -74,12 +94,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2D98152F1D9C80B20012C2A6 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				2D9815301D9C80BC0012C2A6 /* AFHTTPSessionManager.h */,
+				2D9815311D9C80BC0012C2A6 /* AFHTTPSessionManager.m */,
+				2D9815321D9C80BC0012C2A6 /* AFNetworking.h */,
+				2D9815331D9C80BC0012C2A6 /* AFNetworkReachabilityManager.h */,
+				2D9815341D9C80BC0012C2A6 /* AFNetworkReachabilityManager.m */,
+				2D9815351D9C80BC0012C2A6 /* AFSecurityPolicy.h */,
+				2D9815361D9C80BC0012C2A6 /* AFSecurityPolicy.m */,
+				2D9815371D9C80BC0012C2A6 /* AFURLRequestSerialization.h */,
+				2D9815381D9C80BC0012C2A6 /* AFURLRequestSerialization.m */,
+				2D9815391D9C80BC0012C2A6 /* AFURLResponseSerialization.h */,
+				2D98153A1D9C80BC0012C2A6 /* AFURLResponseSerialization.m */,
+				2D98153B1D9C80BC0012C2A6 /* AFURLSessionManager.h */,
+				2D98153C1D9C80BC0012C2A6 /* AFURLSessionManager.m */,
+			);
+			name = AFNetworking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2D1C92671D9C4DF400C9B460 /* Hachidori Toshoukan */ = {
+		2D1C92671D9C4DF400C9B460 /* Hachidori Toshokan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D1C927C1D9C4DF400C9B460 /* Build configuration list for PBXNativeTarget "Hachidori Toshoukan" */;
+			buildConfigurationList = 2D1C927C1D9C4DF400C9B460 /* Build configuration list for PBXNativeTarget "Hachidori Toshokan" */;
 			buildPhases = (
 				2D1C92641D9C4DF400C9B460 /* Sources */,
 				2D1C92651D9C4DF400C9B460 /* Frameworks */,
@@ -89,9 +129,9 @@
 			);
 			dependencies = (
 			);
-			name = "Hachidori Toshoukan";
-			productName = "Hachidori Toshoukan";
-			productReference = 2D1C92681D9C4DF400C9B460 /* Hachidori Toshoukan.app */;
+			name = "Hachidori Toshokan";
+			productName = "Hachidori Toshokan";
+			productReference = 2D1C92681D9C4DF400C9B460 /* Hachidori Toshokan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,10 +145,11 @@
 				TargetAttributes = {
 					2D1C92671D9C4DF400C9B460 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9HDZTER525;
 					};
 				};
 			};
-			buildConfigurationList = 2D1C92631D9C4DF400C9B460 /* Build configuration list for PBXProject "Hachidori Toshoukan" */;
+			buildConfigurationList = 2D1C92631D9C4DF400C9B460 /* Build configuration list for PBXProject "Hachidori Toshokan" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -121,7 +162,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2D1C92671D9C4DF400C9B460 /* Hachidori Toshoukan */,
+				2D1C92671D9C4DF400C9B460 /* Hachidori Toshokan */,
 			);
 		};
 /* End PBXProject section */
@@ -143,9 +184,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D1C92731D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodeld in Sources */,
+				2D9815421D9C80BC0012C2A6 /* AFURLSessionManager.m in Sources */,
+				2D1C92731D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodeld in Sources */,
 				2D1C92701D9C4DF400C9B460 /* main.m in Sources */,
+				2D98153E1D9C80BC0012C2A6 /* AFNetworkReachabilityManager.m in Sources */,
 				2D1C926D1D9C4DF400C9B460 /* AppDelegate.m in Sources */,
+				2D98153F1D9C80BC0012C2A6 /* AFSecurityPolicy.m in Sources */,
+				2D9815401D9C80BC0012C2A6 /* AFURLRequestSerialization.m in Sources */,
+				2D9815411D9C80BC0012C2A6 /* AFURLResponseSerialization.m in Sources */,
+				2D98153D1D9C80BC0012C2A6 /* AFHTTPSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,10 +295,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Hachidori Toshoukan/Info.plist";
+				INFOPLIST_FILE = "Hachidori Toshokan/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "moe.ateliershiori.Hachidori-Toshoukan";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "moe.ateliershiori.Hachidori-Toshokan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -260,10 +309,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Hachidori Toshoukan/Info.plist";
+				INFOPLIST_FILE = "Hachidori Toshokan/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "moe.ateliershiori.Hachidori-Toshoukan";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "moe.ateliershiori.Hachidori-Toshokan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -271,7 +322,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D1C92631D9C4DF400C9B460 /* Build configuration list for PBXProject "Hachidori Toshoukan" */ = {
+		2D1C92631D9C4DF400C9B460 /* Build configuration list for PBXProject "Hachidori Toshokan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D1C927A1D9C4DF400C9B460 /* Debug */,
@@ -280,24 +331,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D1C927C1D9C4DF400C9B460 /* Build configuration list for PBXNativeTarget "Hachidori Toshoukan" */ = {
+		2D1C927C1D9C4DF400C9B460 /* Build configuration list for PBXNativeTarget "Hachidori Toshokan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D1C927D1D9C4DF400C9B460 /* Debug */,
 				2D1C927E1D9C4DF400C9B460 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2D1C92711D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodeld */ = {
+		2D1C92711D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2D1C92721D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodel */,
+				2D1C92721D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodel */,
 			);
-			currentVersion = 2D1C92721D9C4DF400C9B460 /* Hachidori_Toshoukan.xcdatamodel */;
-			path = Hachidori_Toshoukan.xcdatamodeld;
+			currentVersion = 2D1C92721D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodel */;
+			path = Hachidori_Toshokan.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

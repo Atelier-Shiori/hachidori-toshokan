@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  Hachidori Toshoukan
+//  Hachidori Toshokan
 //
 //  Created by 桐間紗路 on 2016/09/28.
 //  Copyright © 2016年 Atelier Shiori. All rights reserved.
@@ -19,10 +19,16 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    self.window.titleVisibility = NSWindowTitleHidden;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+}
+-(void)windowWillClose:(NSNotification *)notification{
+    //Temrminate Application
+    [[NSApplication sharedApplication] terminate:nil];
+    
 }
 
 #pragma mark - Core Data stack
@@ -32,9 +38,9 @@
 @synthesize managedObjectContext = _managedObjectContext;
 
 - (NSURL *)applicationDocumentsDirectory {
-    // The directory the application uses to store the Core Data store file. This code uses a directory named "moe.ateliershiori.Hachidori_Toshoukan" in the user's Application Support directory.
+    // The directory the application uses to store the Core Data store file. This code uses a directory named "moe.ateliershiori.Hachidori_Toshokan" in the user's Application Support directory.
     NSURL *appSupportURL = [[[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
-    return [appSupportURL URLByAppendingPathComponent:@"moe.ateliershiori.Hachidori_Toshoukan"];
+    return [appSupportURL URLByAppendingPathComponent:@"moe.ateliershiori.Hachidori_Toshokan"];
 }
 
 - (NSManagedObjectModel *)managedObjectModel {
@@ -43,7 +49,7 @@
         return _managedObjectModel;
     }
 	
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Hachidori_Toshoukan" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Hachidori_Toshokan" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -173,6 +179,44 @@
     }
 
     return NSTerminateNow;
+}
+
+-(IBAction)refreshlist:(id)sender{
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"https://hummingbird.me/api/v1/users/chikorita157/library" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+       // Clean Core Data
+        [[_list content] removeAllObjects];
+        // populate list
+        NSArray * anilist = (NSArray *)responseObject;
+        for (NSDictionary * aentry in anilist){
+            NSDictionary * ainfo = aentry[@"anime"];
+            NSDictionary * rating = aentry[@"rating"];
+            NSManagedObject *newEntry = [NSEntityDescription
+                                         insertNewObjectForEntityForName :@"AnimeList"
+                                         inManagedObjectContext: _managedObjectContext];
+            [newEntry setValue:aentry[@"episodes_watched"] forKey:@"current_episode"];
+            [newEntry setValue:aentry[@"id"] forKey:@"id"];
+            NSData * imageData = [[[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",ainfo[@"cover_image"]]]] TIFFRepresentation];
+            [newEntry setValue:imageData forKey:@"image"];
+            [newEntry setValue:aentry[@"last_watched"] forKey:@"last_watched"];
+            [newEntry setValue:[NSString stringWithFormat:@"%@",aentry[@"notes"]] forKey:@"notes"];
+            [newEntry setValue:aentry[@"private"] forKey:@"private"];
+            [newEntry setValue:aentry[@"rewatching"] forKey:@"rewatching"];
+            if(rating[@"value"] != [NSNull null]){
+                [newEntry setValue:[[[NSNumberFormatter alloc]init] numberFromString:[NSString stringWithFormat:@"%@",rating[@"value"]]] forKey:@"score"];
+            }
+            [newEntry setValue:aentry[@"status"] forKey:@"status"];
+            [newEntry setValue:ainfo[@"title"] forKey:@"title"];
+            [newEntry setValue:ainfo[@"episode_count"] forKey:@"total_episodes"];
+            [newEntry setValue:aentry[@"updated_at"] forKey:@"updated_at"];
+            [_list addObject:newEntry];
+        }
+        [_managedObjectContext save:nil];
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 @end

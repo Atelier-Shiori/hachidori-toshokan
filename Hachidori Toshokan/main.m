@@ -1,6 +1,6 @@
 //
 //  main.m
-//  Hachidori Toshoukan
+//  Hachidori Toshokan
 //
 //  Created by 桐間紗路 on 2016/09/28.
 //  Copyright © 2016年 Atelier Shiori. All rights reserved.
