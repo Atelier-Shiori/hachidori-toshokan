@@ -208,6 +208,7 @@
                                          insertNewObjectForEntityForName :@"AnimeList"
                                          inManagedObjectContext: _managedObjectContext];
             [newEntry setValue:aentry[@"episodes_watched"] forKey:@"current_episode"];
+            [newEntry setValue:[NSString stringWithFormat:@"%@/%@",aentry[@"episodes_watched"], ainfo[@"episode_count"]] forKey:@"progress"];
             [newEntry setValue:aentry[@"id"] forKey:@"id"];
             [newEntry setValue:[NSString stringWithFormat:@"%@",ainfo[@"cover_image"]] forKey:@"image"];
             [newEntry setValue:aentry[@"last_watched"] forKey:@"last_watched"];
@@ -279,14 +280,18 @@
         else{
             [self appendToAnimeInfo:@"Episodes: Unknown"];
         }
+         [self appendToAnimeInfo:[NSString stringWithFormat:@"Episode Length: %@ minutes", anientry[@"episode_length"]]];
         [self appendToAnimeInfo:[NSString stringWithFormat:@"Show Type: %@", anientry[@"show_type"]]];
         if (anientry[@"age_rating"] != [NSNull null]) {
             [self appendToAnimeInfo:[NSString stringWithFormat:@"Age Rating: %@", anientry[@"age_rating"]]];
         }
+        [self appendToAnimeInfo:[NSString stringWithFormat:@"Community Rating: %@/5", anientry[@"community_rating"]]];
         NSImage * dimg = [[NSImage alloc]initByReferencingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", anientry[@"cover_image"]]]]; //Downloads Image
         [_apopoverposterimage setImage:dimg]; //Get the Image for the title
         [_ainfopopover showRelativeToRect:[_tb frameOfCellAtColumn:0 row:[_tb selectedRow]] ofView:_tb preferredEdge:nil];
-        
+        NSPoint pt = NSMakePoint(0.0, [[_apopoverdetailsout documentView]
+                                       bounds].size.height);
+        [[_apopoverdetailsout documentView] scrollPoint:pt];
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -305,6 +310,30 @@
     sharePicker.delegate = nil;
     // Show Share Box
     [sharePicker showRelativeToRect:[sender bounds] ofView:_sharebutton preferredEdge:NSMinYEdge];
+}
+
+-(IBAction)filterByStatus:(id)sender{
+    NSPredicate *predicate;
+    NSLog(@"%@",[_statusfilter titleOfSelectedItem]);
+    if([[_statusfilter titleOfSelectedItem]  isEqual: @"All"] && [_filtersearchfield stringValue] > 0){
+        predicate = [NSPredicate predicateWithFormat:@"title CONTAINS %@", [_statusfilter titleOfSelectedItem], [_filtersearchfield stringValue]];
+    }
+    else if([[_statusfilter titleOfSelectedItem]  isEqual: @"All"] && [_filtersearchfield stringValue] == 0){
+    }
+    else if([_filtersearchfield stringValue] > 0){
+     predicate = [NSPredicate predicateWithFormat:@"status == %@ and title CONTAINS %@", [_statusfilter titleOfSelectedItem], [_filtersearchfield stringValue]];
+    }
+    else{
+        predicate = [NSPredicate predicateWithFormat:@"status == %@", [_statusfilter titleOfSelectedItem]];
+    }
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"AnimeList" inManagedObjectContext:_managedObjectContext]];
+    
+    if(predicate){
+        [request setPredicate:predicate];
+    }
+    [_list fetch:request];
+    [_list prepareContent];
 }
 
 @end

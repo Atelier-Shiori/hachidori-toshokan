@@ -24,9 +24,12 @@
                 <outlet property="apopoverurewatch" destination="cX4-MY-WSh" id="PSu-wj-mLZ"/>
                 <outlet property="apopoverustatus" destination="T7K-Uj-ArB" id="sPS-9q-xYk"/>
                 <outlet property="apopoverwatchedepi" destination="IGD-Cz-pmJ" id="Jye-pW-3DO"/>
+                <outlet property="filtersearchbox" destination="Ncg-KW-N95" id="1gK-RZ-q1w"/>
+                <outlet property="filtersearchfield" destination="nEb-TW-yh9" id="MUz-yT-BD7"/>
                 <outlet property="list" destination="3fk-GZ-rwK" id="etU-74-Cnk"/>
                 <outlet property="refreshbtn" destination="Sz4-VB-NJW" id="b1a-OH-fLT"/>
                 <outlet property="sharebutton" destination="hYr-jS-XM3" id="QTm-LN-fg0"/>
+                <outlet property="statusfilter" destination="RyV-pu-EdP" id="Hpo-8w-aUn"/>
                 <outlet property="tb" destination="N5c-r7-0G1" id="Cj7-Rf-9dB"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -476,33 +479,21 @@
                                 <rect key="frame" x="176" y="0.0" width="711" height="490"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="100" horizontalPageScroll="10" verticalLineScroll="100" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Vro-rb-pXM">
+                                    <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Vro-rb-pXM">
                                         <rect key="frame" x="0.0" y="0.0" width="711" height="491"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <clipView key="contentView" focusRingType="none" id="HSK-qG-N40">
                                             <rect key="frame" x="1" y="0.0" width="709" height="490"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" headerView="Lfe-5C-vZ4" id="N5c-r7-0G1">
+                                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" headerView="Lfe-5C-vZ4" id="N5c-r7-0G1">
                                                     <rect key="frame" x="0.0" y="0.0" width="709" height="467"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <size key="intercellSpacing" width="3" height="50"/>
+                                                    <size key="intercellSpacing" width="3" height="10"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="76.64453125" minWidth="40" maxWidth="1000" id="HRY-4S-hle">
-                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="smallSystem"/>
-                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                            </tableHeaderCell>
-                                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="fYt-KH-GhM"/>
-                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                            <connections>
-                                                                <binding destination="3fk-GZ-rwK" name="valueURL" keyPath="arrangedObjects.image" id="mcO-kh-C70"/>
-                                                            </connections>
-                                                        </tableColumn>
-                                                        <tableColumn width="224" minWidth="40" maxWidth="1000" id="MMG-bY-0Pz">
+                                                        <tableColumn width="370" minWidth="40" maxWidth="1000" id="MMG-bY-0Pz">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Title">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -519,23 +510,21 @@
                                                             </connections>
                                                         </tableColumn>
                                                         <tableColumn identifier="" width="92" minWidth="10" maxWidth="3.4028234663852886e+38" id="jwK-Tr-HFs">
-                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Episodes Watched">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </tableHeaderCell>
-                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="jxf-2u-afd">
+                                                            <levelIndicatorCell key="dataCell" state="on" alignment="left" doubleValue="3" maxValue="3" warningValue="3" criticalValue="3" levelIndicatorStyle="continuousCapacity" id="gMf-gS-f7J">
                                                                 <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            </levelIndicatorCell>
                                                             <connections>
-                                                                <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.current_episode" id="8OX-97-O7l"/>
+                                                                <binding destination="3fk-GZ-rwK" name="maxValue" keyPath="arrangedObjects.total_episodes" id="J5A-h2-6S2"/>
+                                                                <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.current_episode" previousBinding="J5A-h2-6S2" id="DyU-fx-PCp"/>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="85" minWidth="10" maxWidth="3.4028234663852886e+38" id="wt0-TK-jZe">
-                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Episodes">
+                                                        <tableColumn identifier="" width="67" minWidth="10" maxWidth="3.4028234663852886e+38" id="wt0-TK-jZe">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Progress">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -547,10 +536,10 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <connections>
-                                                                <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.total_episodes" id="5a4-yX-1kV"/>
+                                                                <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.Progress" id="3ma-0u-Iz8"/>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="77.08984375" minWidth="10" maxWidth="3.4028234663852886e+38" id="cCw-FG-uKK">
+                                                        <tableColumn identifier="" width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="cCw-FG-uKK">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Score">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -566,7 +555,7 @@
                                                                 <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.score" id="NPs-Oq-yjm"/>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="135.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="vTR-ng-ykI">
+                                                        <tableColumn identifier="" width="99" minWidth="10" maxWidth="3.4028234663852886e+38" id="vTR-ng-ykI">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Status">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -629,10 +618,13 @@
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <action selector="filterByStatus:" target="Voe-Tx-rLC" id="JEf-x5-pca"/>
+                                </connections>
                             </searchFieldCell>
                         </searchField>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="2608A5CF-6360-416F-9B6A-58A38495E5A2" label="Custom View" paletteLabel="Custom View" id="PqA-H9-9lC">
+                    <toolbarItem implicitItemIdentifier="2608A5CF-6360-416F-9B6A-58A38495E5A2" label="Status Filter" paletteLabel="Status Filter" id="PqA-H9-9lC">
                         <nil key="toolTip"/>
                         <size key="minSize" width="100" height="26"/>
                         <size key="maxSize" width="100" height="26"/>
@@ -660,6 +652,9 @@
                                     </items>
                                 </menu>
                             </popUpButtonCell>
+                            <connections>
+                                <action selector="filterByStatus:" target="Voe-Tx-rLC" id="5Ze-TX-qNW"/>
+                            </connections>
                         </popUpButton>
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="6BCB4988-9E3C-4B20-9DB5-4E2B2685D752" label="Remove" paletteLabel="Remove" image="NSTrashEmpty" id="04h-Eb-lMj">

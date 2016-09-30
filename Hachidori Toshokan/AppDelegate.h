@@ -20,6 +20,8 @@
 
 @property (strong) IBOutlet NSArrayController *list;
 @property (strong) IBOutlet NSTableView *tb;
+@property (weak) IBOutlet NSSearchFieldCell *filtersearchfield;
+@property (weak) IBOutlet NSPopUpButton *statusfilter;
 
 @property (strong) IBOutlet NSPopover *ainfopopover;
 
