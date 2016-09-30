@@ -10,7 +10,9 @@
 #import "AFNetworking.h"
 
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate>{
+    NSString * selectedaniid;
+}
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -18,6 +20,23 @@
 
 @property (strong) IBOutlet NSArrayController *list;
 @property (strong) IBOutlet NSTableView *tb;
+
+@property (strong) IBOutlet NSPopover *ainfopopover;
+
+// Anime List Status Popover
+@property (weak) IBOutlet NSTextField *apopovertitle;
+
+@property (weak) IBOutlet NSPopUpButton *apopoverustatus;
+@property (weak) IBOutlet NSTextField *apopoverurating;
+@property (weak) IBOutlet NSTextField *apopoverwatchedepi;
+@property (weak) IBOutlet NSButton *apopoverurewatch;
+@property (weak) IBOutlet NSTextField *apopoverunotes;
+@property (weak) IBOutlet NSImageView *apopoverposterimage;
+@property (unsafe_unretained) IBOutlet NSTextView *apopoverdetails;
+@property (weak) IBOutlet NSClipView *apopoverdetailsout;
+@property (weak) IBOutlet NSButton *sharebutton;
+
+
 
 @end
 

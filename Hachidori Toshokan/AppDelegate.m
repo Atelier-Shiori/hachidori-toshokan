@@ -24,6 +24,8 @@
     //sort table
     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
     [_tb setSortDescriptors:[NSArray arrayWithObject:sd]];
+    [_apopoverdetailsout setDrawsBackground:NO];
+    [_apopoverdetails setBackgroundColor:[NSColor clearColor]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -34,6 +36,7 @@
     [[NSApplication sharedApplication] terminate:nil];
     
 }
+
 
 #pragma mark - Core Data stack
 
@@ -185,6 +188,7 @@
     return NSTerminateNow;
 }
 
+
 -(IBAction)refreshlist:(id)sender{
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -217,6 +221,7 @@
             [newEntry setValue:ainfo[@"title"] forKey:@"title"];
             [newEntry setValue:ainfo[@"episode_count"] forKey:@"total_episodes"];
             [newEntry setValue:aentry[@"updated_at"] forKey:@"updated_at"];
+            [newEntry setValue:ainfo[@"slug"] forKey:@"aniid"];
             [_list addObject:newEntry];
         }
         //commit
@@ -229,6 +234,77 @@
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+#pragma Anime List popover
+-(IBAction)alistdoubleclcick:(id)sender{
+    NSArray * selected = [_list selectedObjects];
+    NSManagedObject * entry = [selected objectAtIndex:0];
+    NSString* aniid = (NSString *)[entry valueForKey:@"aniid"];
+    selectedaniid = aniid;
+    int current_episode = (int)[entry valueForKey:@"current_episode"];
+    bool rewatching = (bool)[entry valueForKey:@"rewatching"];
+    NSString * status = (NSString *)[entry valueForKey:@"status"];
+    float rating = (int)[entry valueForKey:@"score"];
+    NSString * notes = (NSString *)[entry valueForKey:@"notes"];
+    [self loadinfo:aniid watchedepisodes:current_episode rating:rating status:status notes:notes rewatching:rewatching];
+}
+-(void)loadinfo:(NSString *)aniid watchedepisodes:(int)epi rating:(float)rating status:(NSString *)status notes:(NSString *)notes rewatching:(BOOL)rewatching{
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:[NSString stringWithFormat:@"%@%@",@"https://hummingbird.me/api/v1/anime/",aniid] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        // populate popup window
+        NSDictionary * anientry = (NSDictionary *)responseObject;
+        [_apopovertitle setStringValue:anientry[@"title"]];
+        //Empty
+        [_apopoverdetails setString:@""];
+        //Title
+        if (anientry[@"alternate_title"] != [NSNull null] && [[NSString stringWithFormat:@"%@", anientry[@"alternate_title"]] length] >0) {
+            [self appendToAnimeInfo:[NSString stringWithFormat:@"Also known as %@", anientry[@"alternate_title"]]];
+        }
+        [self appendToAnimeInfo:@""];
+        //Description
+        [self appendToAnimeInfo:@"Description"];
+        [self appendToAnimeInfo:anientry[@"synopsis"]];
+        //Meta Information
+        [self appendToAnimeInfo:@""];
+        [self appendToAnimeInfo:@"Other Information"];
+        [self appendToAnimeInfo:[NSString stringWithFormat:@"Start Date: %@", anientry[@"started_airing"]]];
+        [self appendToAnimeInfo:[NSString stringWithFormat:@"Airing Status: %@", anientry[@"status"]]];
+        if (anientry[@"finished_airing"] != [NSNull null]) {
+            [self appendToAnimeInfo:[NSString stringWithFormat:@"Finished Airing: %@", anientry[@"finished_airing"]]];
+        }
+        if (anientry[@"episode_count"] != [NSNull null]){
+            [self appendToAnimeInfo:[NSString stringWithFormat:@"Episodes: %@", anientry[@"episode_count"]]];
+        }
+        else{
+            [self appendToAnimeInfo:@"Episodes: Unknown"];
+        }
+        [self appendToAnimeInfo:[NSString stringWithFormat:@"Show Type: %@", anientry[@"show_type"]]];
+        if (anientry[@"age_rating"] != [NSNull null]) {
+            [self appendToAnimeInfo:[NSString stringWithFormat:@"Age Rating: %@", anientry[@"age_rating"]]];
+        }
+        NSImage * dimg = [[NSImage alloc]initByReferencingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", anientry[@"cover_image"]]]]; //Downloads Image
+        [_apopoverposterimage setImage:dimg]; //Get the Image for the title
+        [_ainfopopover showRelativeToRect:[_tb frameOfCellAtColumn:0 row:[_tb selectedRow]] ofView:_tb preferredEdge:nil];
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+- (void)appendToAnimeInfo:(NSString*)text
+{
+    NSAttributedString* attr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ \n", text]];
+    
+    [[_apopoverdetails textStorage] appendAttributedString:attr];
+}
+-(IBAction)popovershare:(id)sender{
+    //Generate Items to Share
+    NSArray *shareItems = [NSArray arrayWithObjects:[NSString stringWithFormat:@"Check this show out: %@ ", [_apopovertitle stringValue] ], [NSURL URLWithString:[NSString stringWithFormat:@"http://hummingbird.me/anime/%@", selectedaniid]] ,nil];
+    //Get Share Picker
+    NSSharingServicePicker *sharePicker = [[NSSharingServicePicker alloc] initWithItems:shareItems];
+    sharePicker.delegate = nil;
+    // Show Share Box
+    [sharePicker showRelativeToRect:[sender bounds] ofView:_sharebutton preferredEdge:NSMinYEdge];
 }
 
 @end
