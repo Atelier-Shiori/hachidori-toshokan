@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,9 +14,8 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="ainfopopover" destination="yoH-qU-AQf" id="7SJ-P8-lNb"/>
-                <outlet property="animestatuspopover" destination="Wwh-gh-aoH" id="RO6-vM-CYZ"/>
                 <outlet property="apopoverdetails" destination="yBM-n6-QyA" id="GPS-rt-L29"/>
-                <outlet property="apopoverdetailsout" destination="uJM-mc-Pdd" id="pig-xu-FAj"/>
+                <outlet property="apopoverdetailsout" destination="gDu-vp-Qxx" id="XQm-US-TF1"/>
                 <outlet property="apopoverposterimage" destination="ZtJ-Fm-Nhi" id="OCh-K9-FgI"/>
                 <outlet property="apopovertitle" destination="FzI-4q-OXx" id="jux-lD-zxu"/>
                 <outlet property="apopoverunotes" destination="hsr-2h-aKu" id="IVy-hZ-G8I"/>
@@ -24,10 +23,8 @@
                 <outlet property="apopoverurewatch" destination="cX4-MY-WSh" id="PSu-wj-mLZ"/>
                 <outlet property="apopoverustatus" destination="T7K-Uj-ArB" id="sPS-9q-xYk"/>
                 <outlet property="apopoverwatchedepi" destination="IGD-Cz-pmJ" id="Jye-pW-3DO"/>
-                <outlet property="filtersearchbox" destination="Ncg-KW-N95" id="1gK-RZ-q1w"/>
                 <outlet property="filtersearchfield" destination="nEb-TW-yh9" id="MUz-yT-BD7"/>
                 <outlet property="list" destination="3fk-GZ-rwK" id="etU-74-Cnk"/>
-                <outlet property="refreshbtn" destination="Sz4-VB-NJW" id="b1a-OH-fLT"/>
                 <outlet property="sharebutton" destination="hYr-jS-XM3" id="QTm-LN-fg0"/>
                 <outlet property="statusfilter" destination="RyV-pu-EdP" id="Hpo-8w-aUn"/>
                 <outlet property="tb" destination="N5c-r7-0G1" id="Cj7-Rf-9dB"/>
@@ -396,7 +393,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="bb4-t5-Vjo" id="ioX-rc-gms">
-                                                    <rect key="frame" x="0.0" y="0.0" width="173" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="173" height="489"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -493,7 +490,7 @@
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="370" minWidth="40" maxWidth="1000" id="MMG-bY-0Pz">
+                                                        <tableColumn editable="NO" width="370" minWidth="40" maxWidth="1000" id="MMG-bY-0Pz">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Title">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -509,7 +506,7 @@
                                                                 <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.title" id="2Kf-Ai-Ogj"/>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="92" minWidth="10" maxWidth="3.4028234663852886e+38" id="jwK-Tr-HFs">
+                                                        <tableColumn identifier="" editable="NO" width="92" minWidth="10" maxWidth="3.4028234663852886e+38" id="jwK-Tr-HFs">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -519,11 +516,11 @@
                                                                 <font key="font" metaFont="system"/>
                                                             </levelIndicatorCell>
                                                             <connections>
-                                                                <binding destination="3fk-GZ-rwK" name="maxValue" keyPath="arrangedObjects.total_episodes" id="J5A-h2-6S2"/>
                                                                 <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.current_episode" previousBinding="J5A-h2-6S2" id="DyU-fx-PCp"/>
+                                                                <binding destination="3fk-GZ-rwK" name="maxValue" keyPath="arrangedObjects.total_episodes" id="J5A-h2-6S2"/>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="67" minWidth="10" maxWidth="3.4028234663852886e+38" id="wt0-TK-jZe">
+                                                        <tableColumn identifier="" editable="NO" width="67" minWidth="10" maxWidth="3.4028234663852886e+38" id="wt0-TK-jZe">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Progress">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -539,7 +536,7 @@
                                                                 <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.Progress" id="3ma-0u-Iz8"/>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="cCw-FG-uKK">
+                                                        <tableColumn identifier="" editable="NO" width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="cCw-FG-uKK">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Score">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -555,7 +552,7 @@
                                                                 <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.score" id="NPs-Oq-yjm"/>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="99" minWidth="10" maxWidth="3.4028234663852886e+38" id="vTR-ng-ykI">
+                                                        <tableColumn identifier="" editable="NO" width="99" minWidth="10" maxWidth="3.4028234663852886e+38" id="vTR-ng-ykI">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Status">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -578,7 +575,6 @@
                                                     </connections>
                                                 </tableView>
                                             </subviews>
-                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="FYN-Pm-Nm0">
                                             <rect key="frame" x="1" y="475" width="715" height="15"/>
@@ -748,15 +744,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="142"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView editable="NO" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yBM-n6-QyA">
+                            <textView editable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yBM-n6-QyA">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="142"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="minSize" width="428" height="142"/>
                                 <size key="maxSize" width="493" height="10000000"/>
                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="428" height="142"/>
-                                <size key="maxSize" width="493" height="10000000"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

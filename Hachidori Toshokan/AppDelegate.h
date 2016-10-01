@@ -35,8 +35,9 @@
 @property (weak) IBOutlet NSTextField *apopoverunotes;
 @property (weak) IBOutlet NSImageView *apopoverposterimage;
 @property (unsafe_unretained) IBOutlet NSTextView *apopoverdetails;
-@property (weak) IBOutlet NSClipView *apopoverdetailsout;
+
 @property (weak) IBOutlet NSButton *sharebutton;
+@property (weak) IBOutlet NSScrollView *apopoverdetailsout;
 
 
 

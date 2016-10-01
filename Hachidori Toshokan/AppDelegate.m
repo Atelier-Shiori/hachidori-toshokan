@@ -288,10 +288,9 @@
         [self appendToAnimeInfo:[NSString stringWithFormat:@"Community Rating: %@/5", anientry[@"community_rating"]]];
         NSImage * dimg = [[NSImage alloc]initByReferencingURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", anientry[@"cover_image"]]]]; //Downloads Image
         [_apopoverposterimage setImage:dimg]; //Get the Image for the title
-        [_ainfopopover showRelativeToRect:[_tb frameOfCellAtColumn:0 row:[_tb selectedRow]] ofView:_tb preferredEdge:nil];
-        NSPoint pt = NSMakePoint(0.0, [[_apopoverdetailsout documentView]
-                                       bounds].size.height);
-        [[_apopoverdetailsout documentView] scrollPoint:pt];
+        // Scroll the vertical scroller to top
+        [_apopoverdetails scrollToBeginningOfDocument:self];
+        [_ainfopopover showRelativeToRect:[_tb frameOfCellAtColumn:0 row:[_tb selectedRow]] ofView:_tb preferredEdge:0];
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -304,7 +303,7 @@
 }
 -(IBAction)popovershare:(id)sender{
     //Generate Items to Share
-    NSArray *shareItems = [NSArray arrayWithObjects:[NSString stringWithFormat:@"Check this show out: %@ ", [_apopovertitle stringValue] ], [NSURL URLWithString:[NSString stringWithFormat:@"http://hummingbird.me/anime/%@", selectedaniid]] ,nil];
+    NSArray *shareItems = [NSArray arrayWithObjects:[NSString stringWithFormat:@"Check this show out! %@ ", [_apopovertitle stringValue] ], [NSURL URLWithString:[NSString stringWithFormat:@"http://hummingbird.me/anime/%@", selectedaniid]] ,nil];
     //Get Share Picker
     NSSharingServicePicker *sharePicker = [[NSSharingServicePicker alloc] initWithItems:shareItems];
     sharePicker.delegate = nil;

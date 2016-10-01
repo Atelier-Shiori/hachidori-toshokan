@@ -1,7 +1,7 @@
 # Hachidori Toshokan
 Hachidori Toshokan (はちどり図書館) is an open sourced Hummingbird.me library manager. In development, not ready for public consumption.
  
-Requires latest SDK (10.11) and XCode 7 or later to compile. Deployment target is 10.10.
+Requires latest SDK (10.12) and XCode 8 or later to compile. Deployment target is 10.10.
 
 ## How to Compile in XCode
 Warning: This won't work if you don't have a Developer ID installed. If you don't have one, obtain one by joining the Apple Developer Program or turn off code signing.
