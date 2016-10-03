@@ -212,7 +212,12 @@
             [newEntry setValue:aentry[@"id"] forKey:@"id"];
             [newEntry setValue:[NSString stringWithFormat:@"%@",ainfo[@"cover_image"]] forKey:@"image"];
             [newEntry setValue:aentry[@"last_watched"] forKey:@"last_watched"];
-            [newEntry setValue:[NSString stringWithFormat:@"%@",aentry[@"notes"]] forKey:@"notes"];
+            if (aentry[@"notes"] != [NSNull null]){
+                [newEntry setValue:[NSString stringWithFormat:@"%@",aentry[@"notes"]] forKey:@"notes"];
+            }
+            else{
+                [newEntry setValue:@"" forKey:@"notes"];
+            }
             [newEntry setValue:aentry[@"private"] forKey:@"private"];
             [newEntry setValue:aentry[@"rewatching"] forKey:@"rewatching"];
             if(rating[@"value"] != [NSNull null]){
@@ -242,10 +247,10 @@
     NSManagedObject * entry = [selected objectAtIndex:0];
     NSString* aniid = (NSString *)[entry valueForKey:@"aniid"];
     selectedaniid = aniid;
-    int current_episode = (int)[entry valueForKey:@"current_episode"];
-    bool rewatching = (bool)[entry valueForKey:@"rewatching"];
+    int current_episode = [(NSNumber *)[entry valueForKey:@"current_episode"] intValue];
+    bool rewatching = [(NSNumber *)[entry valueForKey:@"rewatching"] boolValue];
     NSString * status = (NSString *)[entry valueForKey:@"status"];
-    float rating = (int)[entry valueForKey:@"score"];
+    float rating = [(NSNumber *)[entry valueForKey:@"score"] floatValue];
     NSString * notes = (NSString *)[entry valueForKey:@"notes"];
     [self loadinfo:aniid watchedepisodes:current_episode rating:rating status:status notes:notes rewatching:rewatching];
 }
@@ -291,6 +296,25 @@
         // Scroll the vertical scroller to top
         [_apopoverdetails scrollToBeginningOfDocument:self];
         [_ainfopopover showRelativeToRect:[_tb frameOfCellAtColumn:0 row:[_tb selectedRow]] ofView:_tb preferredEdge:0];
+        int istatus;
+        if ([status isEqualToString:@"currently-watching"])
+            istatus = 0;
+        else if ([status isEqualToString:@"completed"])
+            istatus = 1;
+        else if ([status isEqualToString:@"on-hold"])
+            istatus =  2;
+        else if ([status isEqualToString:@"dropped"])
+            istatus =  3;
+        else if ([status isEqualToString:@"plan-to-watch"])
+            istatus =  4;
+        else
+            istatus = 0; //fallback
+        // Set user status
+        [_apopoverustatus selectItemAtIndex:istatus];
+        [_apopoverunotes setStringValue:notes];
+        [_apopoverwatchedepi setStringValue:[NSString stringWithFormat:@"%i", epi]];
+        [_apopoverurating setStringValue:[NSString stringWithFormat:@"%f", rating]];
+        [_apopoverurewatch setState:rewatching];
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

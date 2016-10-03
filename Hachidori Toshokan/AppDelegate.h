@@ -38,6 +38,7 @@
 
 @property (weak) IBOutlet NSButton *sharebutton;
 @property (weak) IBOutlet NSScrollView *apopoverdetailsout;
+@property (weak) IBOutlet NSTextField *apopoverurewatchedtimes;
 
 
 
