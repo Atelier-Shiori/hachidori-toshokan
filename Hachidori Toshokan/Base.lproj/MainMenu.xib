@@ -481,12 +481,12 @@
                                     <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Vro-rb-pXM">
                                         <rect key="frame" x="0.0" y="0.0" width="711" height="491"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <clipView key="contentView" focusRingType="none" id="HSK-qG-N40">
+                                        <clipView key="contentView" focusRingType="none" drawsBackground="NO" id="HSK-qG-N40">
                                             <rect key="frame" x="1" y="0.0" width="709" height="490"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" headerView="Lfe-5C-vZ4" id="N5c-r7-0G1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="709" height="467"/>
+                                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" autosaveName="animelistconfig" rowHeight="20" headerView="RT9-Km-zPH" id="N5c-r7-0G1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="709" height="473"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="10"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -533,9 +533,12 @@
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
-                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <connections>
-                                                                <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.Progress" id="3ma-0u-Iz8"/>
+                                                                <binding destination="3fk-GZ-rwK" name="value" keyPath="arrangedObjects.progress" id="vSk-F5-EOS">
+                                                                    <dictionary key="options">
+                                                                        <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                    </dictionary>
+                                                                </binding>
                                                             </connections>
                                                         </tableColumn>
                                                         <tableColumn identifier="" editable="NO" width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="cCw-FG-uKK">
@@ -577,8 +580,9 @@
                                                     </connections>
                                                 </tableView>
                                             </subviews>
+                                            <nil key="backgroundColor"/>
                                         </clipView>
-                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="FYN-Pm-Nm0">
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="FYN-Pm-Nm0">
                                             <rect key="frame" x="1" y="475" width="715" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
@@ -586,8 +590,8 @@
                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <tableHeaderView key="headerView" id="Lfe-5C-vZ4">
-                                            <rect key="frame" x="4" y="0.0" width="709" height="23"/>
+                                        <tableHeaderView key="headerView" id="RT9-Km-zPH">
+                                            <rect key="frame" x="0.0" y="0.0" width="709" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableHeaderView>
                                     </scrollView>
@@ -705,7 +709,7 @@
             </connections>
             <point key="canvasLocation" x="664" y="361"/>
         </window>
-        <arrayController mode="entity" entityName="AnimeList" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="3fk-GZ-rwK">
+        <arrayController mode="entity" entityName="AnimeList" automaticallyPreparesContent="YES" selectsInsertedObjects="NO" automaticallyRearrangesObjects="YES" id="3fk-GZ-rwK">
             <connections>
                 <binding destination="Voe-Tx-rLC" name="managedObjectContext" keyPath="managedObjectContext" id="7fC-kY-XC3"/>
             </connections>

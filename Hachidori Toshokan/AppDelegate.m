@@ -193,6 +193,8 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:@"https://hummingbird.me/api/v1/users/chikorita157/library" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        // Clear Predicates
+        [self clearpredicates];
             // Clean Core Data
             [_list removeObjects:[_list arrangedObjects]];
             
@@ -208,7 +210,12 @@
                                          insertNewObjectForEntityForName :@"AnimeList"
                                          inManagedObjectContext: _managedObjectContext];
             [newEntry setValue:aentry[@"episodes_watched"] forKey:@"current_episode"];
-            [newEntry setValue:[NSString stringWithFormat:@"%@/%@",aentry[@"episodes_watched"], ainfo[@"episode_count"]] forKey:@"progress"];
+            if (ainfo[@"episode_count"] != [NSNull null]){
+                [newEntry setValue:[NSString stringWithFormat:@"%@/%@",aentry[@"episodes_watched"], ainfo[@"episode_count"]] forKey:@"progress"];
+            }
+            else{
+                [newEntry setValue:[NSString stringWithFormat:@"%@/0",aentry[@"episodes_watched"]] forKey:@"progress"];
+            }
             [newEntry setValue:aentry[@"id"] forKey:@"id"];
             [newEntry setValue:[NSString stringWithFormat:@"%@",ainfo[@"cover_image"]] forKey:@"image"];
             [newEntry setValue:aentry[@"last_watched"] forKey:@"last_watched"];
@@ -220,12 +227,15 @@
             }
             [newEntry setValue:aentry[@"private"] forKey:@"private"];
             [newEntry setValue:aentry[@"rewatching"] forKey:@"rewatching"];
+            [newEntry setValue:aentry[@"rewatched_times"] forKey:@"rewatched_times"];
             if(rating[@"value"] != [NSNull null]){
                 [newEntry setValue:[[[NSNumberFormatter alloc]init] numberFromString:[NSString stringWithFormat:@"%@",rating[@"value"]]] forKey:@"score"];
             }
             [newEntry setValue:aentry[@"status"] forKey:@"status"];
             [newEntry setValue:ainfo[@"title"] forKey:@"title"];
-            [newEntry setValue:ainfo[@"episode_count"] forKey:@"total_episodes"];
+            if (ainfo[@"episode_count"] != [NSNull null]){
+                [newEntry setValue:ainfo[@"episode_count"] forKey:@"total_episodes"];
+            }
             [newEntry setValue:aentry[@"updated_at"] forKey:@"updated_at"];
             [newEntry setValue:ainfo[@"slug"] forKey:@"aniid"];
             [_list addObject:newEntry];
@@ -235,7 +245,7 @@
         //sort table
         NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
             [_tb setSortDescriptors:[NSArray arrayWithObject:sd]];
-        
+        [self setpreciates];
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -336,27 +346,31 @@
 }
 
 -(IBAction)filterByStatus:(id)sender{
+    [self setpreciates];
+}
+-(void)setpreciates{
     NSPredicate *predicate;
-    NSLog(@"%@",[_statusfilter titleOfSelectedItem]);
-    if([[_statusfilter titleOfSelectedItem]  isEqual: @"All"] && [_filtersearchfield stringValue] > 0){
-        predicate = [NSPredicate predicateWithFormat:@"title CONTAINS %@", [_statusfilter titleOfSelectedItem], [_filtersearchfield stringValue]];
+    if([[_statusfilter titleOfSelectedItem]  isEqual: @"All"] && [[_filtersearchfield stringValue] length] > 0){
+        predicate = [NSPredicate predicateWithFormat:@"(status like[c] 'currently-watching' or status like[c] 'on-hold' or status like[c] 'dropped' or status like[c] 'completed' or status like[c] 'plan-to-watch') and title LIKE[c] %@",[NSString stringWithFormat:@"%@*",[_filtersearchfield stringValue]]];
     }
-    else if([[_statusfilter titleOfSelectedItem]  isEqual: @"All"] && [_filtersearchfield stringValue] == 0){
+    else if([[_statusfilter titleOfSelectedItem]  isEqual: @"All"] && [[_filtersearchfield stringValue] length] == 0){
+        predicate = [NSPredicate predicateWithFormat:@"status like[c] 'currently-watching' or status like[c] 'on-hold' or status like[c] 'dropped' or status like[c] 'completed' or status like[c] 'plan-to-watch'"];
     }
-    else if([_filtersearchfield stringValue] > 0){
-     predicate = [NSPredicate predicateWithFormat:@"status == %@ and title CONTAINS %@", [_statusfilter titleOfSelectedItem], [_filtersearchfield stringValue]];
+    else if([[_filtersearchfield stringValue] length] > 0){
+        predicate = [NSPredicate predicateWithFormat:@"status like[c] %@ and title LIKE[c] %@", [_statusfilter titleOfSelectedItem], [NSString stringWithFormat:@"%@*",[_filtersearchfield stringValue]]];
     }
     else{
-        predicate = [NSPredicate predicateWithFormat:@"status == %@", [_statusfilter titleOfSelectedItem]];
+        predicate = [NSPredicate predicateWithFormat:@"status like[c] %@", [_statusfilter titleOfSelectedItem]];
     }
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"AnimeList" inManagedObjectContext:_managedObjectContext]];
-    
-    if(predicate){
-        [request setPredicate:predicate];
-    }
-    [_list fetch:request];
+    //sort table
+    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    [_tb setSortDescriptors:[NSArray arrayWithObject:sd]];
+    [_list setFilterPredicate:predicate];
     [_list prepareContent];
 }
-
+-(void)clearpredicates{
+    NSPredicate *predicate = predicate = [NSPredicate predicateWithFormat:@"status like[c] 'currently-watching' or status like[c] 'on-hold' or status like[c] 'dropped' or status like[c] 'completed' or status like[c] 'plan-to-watch'"];
+    [_list setFilterPredicate:predicate];
+    [_list prepareContent];
+}
 @end
