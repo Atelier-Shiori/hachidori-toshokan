@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Preferences.h"
+#import "PFMoveApplication.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +28,15 @@
     [_tb setSortDescriptors:[NSArray arrayWithObject:sd]];
     [_apopoverdetailsout setDrawsBackground:NO];
     [_apopoverdetails setBackgroundColor:[NSColor clearColor]];
+    if (floor(NSAppKitVersionNumber) < 1485){
+    #ifdef DEBUG
+    #else
+        // Check if Application is in the /Applications Folder
+        // Only Activate in OS X/macOS is 10.11 or earlier due to Gatekeeper changes in macOS Sierra
+        // Note: Sierra Appkit Version is 1485
+        PFMoveToApplicationsFolderIfNecessary();
+    #endif
+    }
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -351,13 +362,13 @@
 -(void)setpreciates{
     NSPredicate *predicate;
     if([[_statusfilter titleOfSelectedItem]  isEqual: @"All"] && [[_filtersearchfield stringValue] length] > 0){
-        predicate = [NSPredicate predicateWithFormat:@"(status like[c] 'currently-watching' or status like[c] 'on-hold' or status like[c] 'dropped' or status like[c] 'completed' or status like[c] 'plan-to-watch') and title LIKE[c] %@",[NSString stringWithFormat:@"%@*",[_filtersearchfield stringValue]]];
+        predicate = [NSPredicate predicateWithFormat:@"(status like[c] 'currently-watching' or status like[c] 'on-hold' or status like[c] 'dropped' or status like[c] 'completed' or status like[c] 'plan-to-watch') and title LIKE[c] %@",[NSString stringWithFormat:@"*%@*",[_filtersearchfield stringValue]]];
     }
     else if([[_statusfilter titleOfSelectedItem]  isEqual: @"All"] && [[_filtersearchfield stringValue] length] == 0){
         predicate = [NSPredicate predicateWithFormat:@"status like[c] 'currently-watching' or status like[c] 'on-hold' or status like[c] 'dropped' or status like[c] 'completed' or status like[c] 'plan-to-watch'"];
     }
     else if([[_filtersearchfield stringValue] length] > 0){
-        predicate = [NSPredicate predicateWithFormat:@"status like[c] %@ and title LIKE[c] %@", [_statusfilter titleOfSelectedItem], [NSString stringWithFormat:@"%@*",[_filtersearchfield stringValue]]];
+        predicate = [NSPredicate predicateWithFormat:@"status like[c] %@ and title LIKE[c] %@", [_statusfilter titleOfSelectedItem], [NSString stringWithFormat:@"*%@*",[_filtersearchfield stringValue]]];
     }
     else{
         predicate = [NSPredicate predicateWithFormat:@"status like[c] %@", [_statusfilter titleOfSelectedItem]];
@@ -372,5 +383,34 @@
     NSPredicate *predicate = predicate = [NSPredicate predicateWithFormat:@"status like[c] 'currently-watching' or status like[c] 'on-hold' or status like[c] 'dropped' or status like[c] 'completed' or status like[c] 'plan-to-watch'"];
     [_list setFilterPredicate:predicate];
     [_list prepareContent];
+}
+#pragma Hummingbird Menu
+-(IBAction)showhummingbirddashboard:(id)sender
+{
+    //Show Hummingbird Registration Page
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://hummingbird.me/dashboard"]];
+}
+-(IBAction)showhummingbirdforums:(id)sender
+{
+    //Show Hummingbird Registration Page
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://forums.hummingbird.me/"]];
+}
+#pragma Preferences
+- (NSWindowController *)preferencesWindowController
+{
+    if (_preferencesWindowController == nil)
+    {
+        NSViewController *suViewController = [[SoftwareUpdatesPref alloc] init];
+        NSArray *controllers = @[suViewController];
+        _preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:controllers];
+    }
+    return _preferencesWindowController;
+}
+
+-(IBAction)showPreferences:(id)sender
+{
+    //Since LSUIElement is set to 1 to hide the dock icon, it causes unattended behavior of having the program windows not show to the front.
+    [NSApp activateIgnoringOtherApps:YES];
+    [self.preferencesWindowController showWindow:nil];
 }
 @end

@@ -13,6 +13,7 @@ Warning: This won't work if you don't have a Developer ID installed. If you don'
 All the frameworks are included. Just build! Here are the frameworks that are used in this app:
 
 * Sparkle.framework
+* MASPreferences.framework
  
 Licenses for these frameworks and related classes can be seen [here](https://github.com/Atelier-Shiori/hachidori-toshokan/wiki/Credits).
 

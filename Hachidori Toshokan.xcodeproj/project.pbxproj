@@ -12,6 +12,16 @@
 		2D1C92731D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C92711D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodeld */; };
 		2D1C92751D9C4DF400C9B460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D1C92741D9C4DF400C9B460 /* Assets.xcassets */; };
 		2D1C92781D9C4DF400C9B460 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D1C92761D9C4DF400C9B460 /* MainMenu.xib */; };
+		2D1FFD2A1DA4037900942158 /* SoftwareUpdateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D1FFD291DA4037900942158 /* SoftwareUpdateView.xib */; };
+		2D1FFD2D1DA4038600942158 /* SoftwareUpdatesPref.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1FFD2C1DA4038600942158 /* SoftwareUpdatesPref.m */; };
+		2D1FFD2F1DA4039D00942158 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1FFD2E1DA4039D00942158 /* Sparkle.framework */; };
+		2D1FFD351DA4052300942158 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1FFD321DA4052300942158 /* SSKeychain.m */; };
+		2D1FFD361DA4052300942158 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1FFD341DA4052300942158 /* SSKeychainQuery.m */; };
+		2D1FFD3F1DA4062A00942158 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D1FFD2E1DA4039D00942158 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2D1FFD411DA4086700942158 /* MASPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1FFD401DA4086700942158 /* MASPreferences.framework */; };
+		2D1FFD421DA4090C00942158 /* MASPreferences.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D1FFD401DA4086700942158 /* MASPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2D1FFD441DA4097800942158 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2D1FFD431DA4097800942158 /* dsa_pub.pem */; };
+		2D1FFD471DA40D2800942158 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1FFD461DA40D2800942158 /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2D98153D1D9C80BC0012C2A6 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9815311D9C80BC0012C2A6 /* AFHTTPSessionManager.m */; };
 		2D98153E1D9C80BC0012C2A6 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9815341D9C80BC0012C2A6 /* AFNetworkReachabilityManager.m */; };
 		2D98153F1D9C80BC0012C2A6 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9815361D9C80BC0012C2A6 /* AFSecurityPolicy.m */; };
@@ -19,6 +29,20 @@
 		2D9815411D9C80BC0012C2A6 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D98153A1D9C80BC0012C2A6 /* AFURLResponseSerialization.m */; };
 		2D9815421D9C80BC0012C2A6 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D98153C1D9C80BC0012C2A6 /* AFURLSessionManager.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2D1FFD3E1DA4060F00942158 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2D1FFD3F1DA4062A00942158 /* Sparkle.framework in CopyFiles */,
+				2D1FFD421DA4090C00942158 /* MASPreferences.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2D1C92681D9C4DF400C9B460 /* Hachidori Toshokan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hachidori Toshokan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +53,19 @@
 		2D1C92741D9C4DF400C9B460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D1C92771D9C4DF400C9B460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2D1C92791D9C4DF400C9B460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D1FFD291DA4037900942158 /* SoftwareUpdateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoftwareUpdateView.xib; sourceTree = "<group>"; };
+		2D1FFD2B1DA4038600942158 /* SoftwareUpdatesPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoftwareUpdatesPref.h; sourceTree = "<group>"; };
+		2D1FFD2C1DA4038600942158 /* SoftwareUpdatesPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoftwareUpdatesPref.m; sourceTree = "<group>"; };
+		2D1FFD2E1DA4039D00942158 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		2D1FFD301DA4044400942158 /* Preferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		2D1FFD311DA4052300942158 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		2D1FFD321DA4052300942158 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		2D1FFD331DA4052300942158 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		2D1FFD341DA4052300942158 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
+		2D1FFD401DA4086700942158 /* MASPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MASPreferences.framework; sourceTree = "<group>"; };
+		2D1FFD431DA4097800942158 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		2D1FFD451DA40D2800942158 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
+		2D1FFD461DA40D2800942158 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
 		2D9815301D9C80BC0012C2A6 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		2D9815311D9C80BC0012C2A6 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		2D9815321D9C80BC0012C2A6 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -49,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1FFD2F1DA4039D00942158 /* Sparkle.framework in Frameworks */,
+				2D1FFD411DA4086700942158 /* MASPreferences.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,11 +113,16 @@
 		2D1C926A1D9C4DF400C9B460 /* Hachidori Toshokan */ = {
 			isa = PBXGroup;
 			children = (
+				2D1FFD481DA40E0F00942158 /* Other Classes */,
+				2D1FFD3D1DA405B000942158 /* Frameworks */,
+				2D1FFD3B1DA4057300942158 /* Preferences */,
+				2D1FFD3A1DA4055D00942158 /* SSKeychain */,
 				2D98152F1D9C80B20012C2A6 /* AFNetworking */,
 				2D1C926B1D9C4DF400C9B460 /* AppDelegate.h */,
 				2D1C926C1D9C4DF400C9B460 /* AppDelegate.m */,
 				2D1C92741D9C4DF400C9B460 /* Assets.xcassets */,
 				2D1C92761D9C4DF400C9B460 /* MainMenu.xib */,
+				2D1FFD431DA4097800942158 /* dsa_pub.pem */,
 				2D1C92791D9C4DF400C9B460 /* Info.plist */,
 				2D1C92711D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodeld */,
 				2D1C926E1D9C4DF400C9B460 /* Supporting Files */,
@@ -92,6 +136,46 @@
 				2D1C926F1D9C4DF400C9B460 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2D1FFD3A1DA4055D00942158 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				2D1FFD311DA4052300942158 /* SSKeychain.h */,
+				2D1FFD321DA4052300942158 /* SSKeychain.m */,
+				2D1FFD331DA4052300942158 /* SSKeychainQuery.h */,
+				2D1FFD341DA4052300942158 /* SSKeychainQuery.m */,
+			);
+			name = SSKeychain;
+			sourceTree = "<group>";
+		};
+		2D1FFD3B1DA4057300942158 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				2D1FFD301DA4044400942158 /* Preferences.h */,
+				2D1FFD2B1DA4038600942158 /* SoftwareUpdatesPref.h */,
+				2D1FFD2C1DA4038600942158 /* SoftwareUpdatesPref.m */,
+				2D1FFD291DA4037900942158 /* SoftwareUpdateView.xib */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		2D1FFD3D1DA405B000942158 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D1FFD401DA4086700942158 /* MASPreferences.framework */,
+				2D1FFD2E1DA4039D00942158 /* Sparkle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2D1FFD481DA40E0F00942158 /* Other Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2D1FFD451DA40D2800942158 /* PFMoveApplication.h */,
+				2D1FFD461DA40D2800942158 /* PFMoveApplication.m */,
+			);
+			name = "Other Classes";
 			sourceTree = "<group>";
 		};
 		2D98152F1D9C80B20012C2A6 /* AFNetworking */ = {
@@ -124,6 +208,7 @@
 				2D1C92641D9C4DF400C9B460 /* Sources */,
 				2D1C92651D9C4DF400C9B460 /* Frameworks */,
 				2D1C92661D9C4DF400C9B460 /* Resources */,
+				2D1FFD3E1DA4060F00942158 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -173,6 +258,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1FFD2A1DA4037900942158 /* SoftwareUpdateView.xib in Resources */,
+				2D1FFD441DA4097800942158 /* dsa_pub.pem in Resources */,
 				2D1C92751D9C4DF400C9B460 /* Assets.xcassets in Resources */,
 				2D1C92781D9C4DF400C9B460 /* MainMenu.xib in Resources */,
 			);
@@ -187,12 +274,16 @@
 			files = (
 				2D9815421D9C80BC0012C2A6 /* AFURLSessionManager.m in Sources */,
 				2D1C92731D9C4DF400C9B460 /* Hachidori_Toshokan.xcdatamodeld in Sources */,
+				2D1FFD2D1DA4038600942158 /* SoftwareUpdatesPref.m in Sources */,
 				2D1C92701D9C4DF400C9B460 /* main.m in Sources */,
+				2D1FFD361DA4052300942158 /* SSKeychainQuery.m in Sources */,
 				2D98153E1D9C80BC0012C2A6 /* AFNetworkReachabilityManager.m in Sources */,
 				2D1C926D1D9C4DF400C9B460 /* AppDelegate.m in Sources */,
 				2D98153F1D9C80BC0012C2A6 /* AFSecurityPolicy.m in Sources */,
 				2D9815401D9C80BC0012C2A6 /* AFURLRequestSerialization.m in Sources */,
+				2D1FFD351DA4052300942158 /* SSKeychain.m in Sources */,
 				2D9815411D9C80BC0012C2A6 /* AFURLResponseSerialization.m in Sources */,
+				2D1FFD471DA40D2800942158 /* PFMoveApplication.m in Sources */,
 				2D98153D1D9C80BC0012C2A6 /* AFHTTPSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +390,11 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9HDZTER525;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Hachidori\\ Toshokan",
+					"$(PROJECT_DIR)/Hachidori\\ Toshokan",
+				);
 				INFOPLIST_FILE = "Hachidori Toshokan/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -314,6 +410,11 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9HDZTER525;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Hachidori\\ Toshokan",
+					"$(PROJECT_DIR)/Hachidori\\ Toshokan",
+				);
 				INFOPLIST_FILE = "Hachidori Toshokan/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;

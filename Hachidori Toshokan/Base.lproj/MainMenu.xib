@@ -47,9 +47,16 @@
                             </menuItem>
                             <menuItem title="Check for Updates…" id="n7w-KL-Bpa">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="Fj2-cF-p9v" id="im2-ne-hxT"/>
+                                </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                <connections>
+                                    <action selector="showPreferences:" target="Voe-Tx-rLC" id="iKa-OG-MZu"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                             <menuItem title="Services" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -319,9 +326,15 @@
                         <items>
                             <menuItem title="Dashboard" id="FaA-YJ-i2P">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showhummingbirddashboard:" target="Voe-Tx-rLC" id="9sF-GN-c2n"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="Forums" id="0Y3-u3-1Kw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showhummingbirdforums:" target="Voe-Tx-rLC" id="VgA-DR-oGu"/>
+                                </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="QP0-hP-ygj"/>
                             <menuItem title="Export Library…" id="yNW-1q-D0h">
@@ -368,7 +381,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="22" y="-245"/>
+            <point key="canvasLocation" x="222" y="-222"/>
         </menu>
         <window title="Hachidori Toshokan" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="documentWindow" frameAutosaveName="winpos" tabbingMode="disallowed" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
@@ -917,6 +930,7 @@
             </subviews>
             <point key="canvasLocation" x="466" y="828"/>
         </customView>
+        <customObject id="Fj2-cF-p9v" customClass="SUUpdater"/>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
